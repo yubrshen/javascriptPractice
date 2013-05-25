@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Javascript Debugging with Firebug</title>
+<script src="mootools-1.2.4-core.js"></script>
+<script src="textScope-UI.js"></script>
+<script src="../textScope/tokens.js"></script>
+<script src="../textScope/textScope.js"></script>
+     
+<script type="text/javascript">
+
+var doc_body  = $(document.body)? $(document.body):$$('body')[0];
+var sample = "JavaScript supports \"return\" statements to allow functions to return values back to calling expressions. Here are some basic rules on the return value from a function. If no return statement is used in a function, the calling expression will receive a special value: \"undefined\". If the return value is a primitive value, the calling expression will receive a copy of the return value. If the return value is an object reference, the calling expression will receive a copy of the object reference.";
+
+// BACKLOG: need to learn how to assign multiline text to variable. 
+function test() {// simulate the invocation of contruction of the reader class, and the operations.
+    var text = sample;
+    var settings = {
+        'wpm': 300,
+        'words': 2,
+        'font': 30
+    };
+    // var reader = TEXTSCOPE_TEXT_READER(text, settings);
+    processText(text, settings);
+    //    create_reader(text);
+    // // alert("Received a valid event");
+    // notifier = false; 
+    // var text = sample;
+    //     //getSelectedText();
+    // if (text.length){
+    //     if (!notifier){
+    //         var textScope_notif = new Element('div',{
+    //                 id: 'textScope_notifier',
+    //                 text: 'Speed read this text',
+    //                 events: {
+    //                     'click': function(event){
+    //                         create_reader(text);
+    //                         return this.destroy();
+    //                     }
+    //                 }
+    //             });
+    //         $(doc_body).grab(textSoope_notif);
+    //         $(textScope_notif).setStyle('left', event.page.x + 30);
+    //         $(textScope_notif).setStyle('top',  event.page.y - 50);
+    //     }
+    // }
+}
+</script>
+
+</head>
+<body>
+  <div>
+  <div id="messageLabel"></div>
+  <input type="button" value="Start Test!" onclick="test();" />
+  </div>
+</body>
+</html>
