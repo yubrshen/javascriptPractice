@@ -41,22 +41,22 @@ window.addEvent
 var MEANINGFUL_SELECTION_LENGTH = 3; // the minimum length that textScope should be start working. 
 
 function getSelectedParagraphText() {
-  var userSelection;
+    "use strict";
+  var selection;
   if (window.getSelection) {
       selection = window.getSelection();
   } else if (document.selection) {
       selection = document.selection.createRange();
   }
-  if (String(userSelection).length < MEANINGFUL_SELECTION_LENGTH) return "";
+  if (String(selection).length < MEANINGFUL_SELECTION_LENGTH) return "";
   var parent = selection.anchorNode;
-  var paragraphEquivalent = {"p":true, "blockquote":true}; Note: the tag "P" does not work. "p" works
-  while (parent != null && not (parent.localName in paragraphEquivalent)) {// 
-      
+  var paragraphEquivalent = {"p":true, "blockquote":true, "pre":true}; // Note: the tag "P" does not work. "p" works
+  while (parent != null && !(parent.localName in paragraphEquivalent)) {// 
     parent = parent.parentNode; // Note: this code has the danger if there is no containing paragraph equivalent, and parent becomes indeed null!
       // why parent would be come null?
   }
   if (parent == null) {
-      raise "parent eventual of the selection becomes null!"
+      raise("parent eventual of the selection becomes null!");
     // return "";
   } else {
     return parent.textContent || parent.innerText;
