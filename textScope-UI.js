@@ -50,13 +50,16 @@ function getSelectedParagraphText() {
   }
   if (String(selection).length < MEANINGFUL_SELECTION_LENGTH) return "";
   var parent = selection.anchorNode;
+  var backupText = ""; // deal with the situation where backtrack failed
+  if (parent.parentNode.localName === "div") return parent.nodeValue;
   var paragraphEquivalent = {"p":true, "blockquote":true, "pre":true}; // Note: the tag "P" does not work. "p" works
   while (parent != null && !(parent.localName in paragraphEquivalent)) {// 
     parent = parent.parentNode; // Note: this code has the danger if there is no containing paragraph equivalent, and parent becomes indeed null!
       // why parent would be come null?
   }
   if (parent == null) {
-      raise("parent eventual of the selection becomes null!");
+      return backupText;
+      // raise("parent eventual of the selection becomes null!");
     // return "";
   } else {
     return parent.textContent || parent.innerText;
