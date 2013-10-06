@@ -1,0 +1,106 @@
+/* minimal reset */
+/* #textScope_panel * {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;} */
+#textScope_panel * {margin:0;padding:0;border:0;vertical-align:baseline;}
+
+#textScope_background {
+        z-index: 9999999;
+        background: black;
+        opacity: 0.3;
+        position: fixed;
+        top: 0;
+        left: 0;
+}
+
+#textScope_panel {
+        -webkit-box-shadow: 1px 1px 10px -1px black;
+        border: 1px solid #999;
+        background: white;
+        color: black;
+        position: fixed;
+        top: 0; /* change from 100ps to 50ps, to make the position higher */
+        right: 0;
+        z-index: 2147483647; /* probably the largest, trying to block those panels showing up on top of the panel. According to Kuang, I may need to use a i-frame to achieve the purpose of blocking flash panel */
+        display: block;
+        min-width: 200px;
+	      float:right; 
+	      width:50%; 
+	      height:98%;
+}
+
+#textScope_flushes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display:table-cell;
+    text-align: left;
+    width: 85%;
+    height: 93%;
+    font-size: 24px;  /* font size less than 24px looks too light */
+    overflow: auto;
+    padding: 10px;
+}
+
+#preFormat {
+    font-size: 24px;
+}
+
+#infopane {
+    position: absolute;
+    bottom: 10px;
+    left: 2px;
+    height: 10px;
+    font-size: 9px;
+}
+
+#progressbar {
+    position: absolute;
+    bottom: 10px;
+    left: 2px;
+    height: 10px;
+    font-size: 9px;
+    opacity: 0.3;
+}
+
+ul#textScope_buttons {
+    width: auto;
+    height: auto;
+    padding: 0;
+    font-size: 12px;
+    margin: 0 auto;
+    display: block;
+    /* float: right; */
+	  position: absolute;
+	  right: 0;
+	  /* bottom: 0; */
+    top: 0;
+    z-index: 9999999;
+}
+
+ul#textScope_buttons li {
+    display: block;
+    padding: 2px;
+    background: #ddd;
+    border-bottom: #aaa;
+    margin: 0px 1px;
+    cursor: pointer;
+}
+
+#textScope_buttons li:hover {
+    background: #eee;
+}
+
+#textScope_notifier {
+    border: 2px solid #666;
+    -webkit-box-shadow: 1px 1px 10px 0px;
+    -webkit-border-radius: 5px;
+    width: auto;
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    color: black;
+    background: white;
+    font-weight: normal;
+    padding: 4px;
+    z-index: 9999999;
+    cursor: pointer;
+}
